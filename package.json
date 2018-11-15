@@ -1,0 +1,27 @@
+{
+  "name": "hamburger_sequelize",
+  "version": "1.0.0",
+  "description": "Week 15 HW",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EhrenDavis12/hamburger_sequelize.git"
+  },
+  "author": "Ehren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EhrenDavis12/hamburger_sequelize/issues"
+  },
+  "homepage": "https://github.com/EhrenDavis12/hamburger_sequelize#readme",
+  "dependencies": {
+    "express": "4.16.4",
+    "express-handlebars": "3.0.0",
+    "mysql2": "1.6.4",
+    "node": "11.1.0",
+    "sequelize": "4.41.1"
+  }
+}

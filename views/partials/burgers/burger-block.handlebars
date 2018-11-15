@@ -1,0 +1,6 @@
+<li>
+	{{sequelizeGet item 'name'}}
+	<button class="change-devoured" data-id="{{sequelizeGet item 'id'}}" data-new_devoured="{{sequelizeGet item 'devoured'}}">
+		{{#if sequelizeGet item 'devoured'}}Eat!{{else}}Resupply{{/if}}
+	</button>
+</li>
