@@ -11,16 +11,13 @@ module.exports = function (app) {
   // GET route for getting all of the Burger
   app.get("/", function (req, res) {
     // findAll returns all entries for a table when used with no options
-    const Handlebars = require('handlebars');
-    Handlebars.registerHelper('sequelizeGet', function (obj, col) {
-      db.Burger.findAll({}).then(function (dbBurger) {
-        // We have access to the Burger as an argument inside of the callback function
-        //res.json(dbBurger);
-        var hbsObject = {
-          burgers: dbBurger
-        };
-        res.render("index", hbsObject);
-      });
+    db.Burger.findAll({}).then(function (dbBurger) {
+      // We have access to the Burger as an argument inside of the callback function
+      //res.json(dbBurger);
+      var hbsObject = {
+        burgers: dbBurger
+      };
+      res.render("index", hbsObject);
     });
   });
 
@@ -33,13 +30,12 @@ module.exports = function (app) {
     });
   });
 
-  app.put("/api/Burgers", function (req, res) {
+  app.put("/api/Burgers/:id", function (req, res) {
     db.Burger.update({
-      name: req.body.name,
       devoured: req.body.devoured
     }, {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       }).then(function (dbBurger) {
         res.json(dbBurger);
