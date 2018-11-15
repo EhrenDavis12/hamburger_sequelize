@@ -14,8 +14,13 @@
         <h2 class="card-title">Burgers at the ready!</h2>
         <ul>
           {{#each burgers}}
-          {{#unless sequelizeGet item 'devoured'}}
-          {{> burgers/burger-block devoured=true}}
+          {{#unless this.devoured}}
+          <li>
+            {{this.name}}
+            <button class="change-devoured" data-id="{{this.id}}" data-new_devoured="true">
+              {{#if this.devoured}}Eat!{{else}}Resupply{{/if}}
+            </button>
+          </li>
           {{/unless}}
           {{/each}}
         </ul>
@@ -27,9 +32,14 @@
       <div class="card-body">
         <h2 class="card-title">Burgers that have been eaten!</h2>
         <ul>
-          {{#each burger}}
-          {{#if devoured}}
-          {{> burgers/burger-block devoured=false}}
+          {{#each burgers}}
+          {{#if this.devoured}}
+          <li>
+            {{this.name}}
+            <button class="change-devoured" data-id="{{this.id}}" data-new_devoured="false">
+              {{#if this.devoured}}Eat!{{else}}Resupply{{/if}}
+            </button>
+          </li>
           {{/if}}
           {{/each}}
         </ul>
